@@ -21,13 +21,15 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class AppBar {
+public class YCAppBar {
 
 
     public static void setStatusBarColor(Activity activity, int statusColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //21
             BarStatusLollipop.setStatusBarColor(activity, statusColor);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //19
             BarStatusKitKat.setStatusBarColor(activity, statusColor);
         }
     }
@@ -44,12 +46,16 @@ public class AppBar {
         }
     }
 
-    public static void setStatusBarColorForCollapsingToolbar(@NonNull Activity activity, AppBarLayout appBarLayout, CollapsingToolbarLayout collapsingToolbarLayout,
-                                                             Toolbar toolbar, @ColorInt int statusColor) {
+    public static void setStatusBarColorForCollapsingToolbar(
+            @NonNull Activity activity, AppBarLayout appBarLayout,
+            CollapsingToolbarLayout collapsingToolbarLayout,
+            Toolbar toolbar, @ColorInt int statusColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            BarStatusLollipop.setStatusBarColorForCollapsingToolbar(activity, appBarLayout, collapsingToolbarLayout, toolbar, statusColor);
+            BarStatusLollipop.setStatusBarColorForCollapsingToolbar(activity,
+                    appBarLayout, collapsingToolbarLayout, toolbar, statusColor);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            BarStatusKitKat.setStatusBarColorForCollapsingToolbar(activity, appBarLayout, collapsingToolbarLayout, toolbar, statusColor);
+            BarStatusKitKat.setStatusBarColorForCollapsingToolbar(activity,
+                    appBarLayout, collapsingToolbarLayout, toolbar, statusColor);
         }
     }
 
@@ -57,7 +63,8 @@ public class AppBar {
     public static void setStatusBarLightMode(Activity activity, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色
-            if (setStatusBarLightMode(activity, true) || FlymeSetStatusBarLightMode(activity, true)) {
+            if (setStatusBarLightMode(activity, true) ||
+                    FlymeSetStatusBarLightMode(activity, true)) {
                 //设置状态栏为指定颜色
                 //5.0
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -70,7 +77,9 @@ public class AppBar {
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 //如果是6.0以上将状态栏文字改为黑色，并设置状态栏颜色
                 activity.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                activity.getWindow().getDecorView().
+                        setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 activity.getWindow().setStatusBarColor(color);
 
                 //fitsSystemWindow 为 false, 不预留系统栏位置.
@@ -85,12 +94,16 @@ public class AppBar {
     }
 
 
-    public static void setStatusBarLightForCollapsingToolbar(Activity activity, AppBarLayout appBarLayout,
-                                                             CollapsingToolbarLayout collapsingToolbarLayout, Toolbar toolbar, int statusBarColor) {
+    public static void setStatusBarLightForCollapsingToolbar(
+            Activity activity, AppBarLayout appBarLayout,
+            CollapsingToolbarLayout collapsingToolbarLayout,
+            Toolbar toolbar, int statusBarColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            BarStatusLollipop.setStatusBarWhiteForCollapsingToolbar(activity, appBarLayout, collapsingToolbarLayout, toolbar, statusBarColor);
+            BarStatusLollipop.setStatusBarWhiteForCollapsingToolbar(activity,
+                    appBarLayout, collapsingToolbarLayout, toolbar, statusBarColor);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            BarStatusKitKat.setStatusBarWhiteForCollapsingToolbar(activity, appBarLayout, collapsingToolbarLayout, toolbar, statusBarColor);
+            BarStatusKitKat.setStatusBarWhiteForCollapsingToolbar(activity,
+                    appBarLayout, collapsingToolbarLayout, toolbar, statusBarColor);
         }
     }
 
@@ -108,7 +121,9 @@ public class AppBar {
             Window window = activity.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
 
             Class<? extends Window> clazz = activity.getWindow().getClass();
             Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
@@ -156,6 +171,7 @@ public class AppBar {
     }
 
     static int getPxFromDp(Context context, float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dp, context.getResources().getDisplayMetrics());
     }
 }
