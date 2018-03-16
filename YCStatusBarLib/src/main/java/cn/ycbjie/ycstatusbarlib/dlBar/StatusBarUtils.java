@@ -1,26 +1,26 @@
 package cn.ycbjie.ycstatusbarlib.dlBar;
 
 import android.app.Activity;
-import android.app.TabActivity;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorInt;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import static cn.ycbjie.ycstatusbarlib.StatusBarHeightUtils.getStatusBarHeight;
 
-/**
- * Created by PC on 2017/3/27
- * 状态栏工具类
- */
 
+/**
+ * ================================================
+ * 作    者：杨充
+ * 版    本：1.0
+ * 创建日期：2017/3/27
+ * 描    述：状态栏工具类
+ * 修订历史：
+ * ================================================
+ */
 public class StatusBarUtils {
 
 

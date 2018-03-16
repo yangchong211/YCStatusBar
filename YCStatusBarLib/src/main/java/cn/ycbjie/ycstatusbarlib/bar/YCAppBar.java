@@ -21,6 +21,19 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * ================================================
+ * 作    者：杨充
+ * 版    本：1.0
+ * 创建日期：2017/3/27
+ * 描    述：状态栏工具类
+ * 修订历史：
+ * 更多详细内容：
+ *          GitHub：https://github.com/yangchong211
+ *          博客汇总：https://www.jianshu.com/p/53017c3fc75d
+ *          欢迎star
+ * ================================================
+ */
 public class YCAppBar {
 
 

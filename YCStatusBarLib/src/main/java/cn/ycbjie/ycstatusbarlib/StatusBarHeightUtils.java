@@ -5,10 +5,14 @@ import android.content.Context;
 import android.content.res.Resources;
 
 /**
- * Created by PC on 2017/3/27
- * 获取状态栏的高度
+ * ================================================
+ * 作    者：杨充
+ * 版    本：1.0
+ * 创建日期：2017/3/27
+ * 描    述：获取状态栏的高度
+ * 修订历史：
+ * ================================================
  */
-
 public class StatusBarHeightUtils {
 
     /**

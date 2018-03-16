@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:text="标题"
+            android:text="潇湘剑雨"
             android:textColor="@color/colorAccent"
             android:layout_marginLeft="10dp"
             android:textSize="18sp"/>

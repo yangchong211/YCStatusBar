@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.dlBar.StatusBarUtils;
@@ -66,8 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 初始化侧滑菜单的状态栏
      */
     private void initDrawerLayoutStatus() {
+        //为DrawerLayout 布局设置状态栏颜色,纯色
         /*StatusBarUtils.setColorNoTranslucentForDrawerLayout(this, drawerLayout,
                 getResources().getColor(R.color.colorTheme));*/
+        //为DrawerLayout 布局设置状态栏变色，也就是加上透明度
         StatusBarUtils.setColorForDrawerLayout(this, drawerLayout,
                 getResources().getColor(R.color.colorTheme), 0);
     }

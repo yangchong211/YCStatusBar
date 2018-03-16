@@ -206,7 +206,6 @@ class BarStatusKitKat {
 
                         if (YCAppBar.setStatusBarLightMode(activity, true) ||
                                 YCAppBar.FlymeSetStatusBarLightMode(activity, true)) {
-
                         }
                         if (statusView.getAlpha() == 0) {
                             statusView.animate().cancel();
