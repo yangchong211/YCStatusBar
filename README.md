@@ -68,6 +68,7 @@ YCAppBar.setStatusBarLightForCollapsingToolbar(this, mAppBarLayout, collapsingTo
 
 
 ### 4.关于版本更新说明
+- v0.0 更新于2016年3月9日
 - v1.0 更新于2017年9月8日
 - v1.1 更新于2017年12月5日
 - v1.3 更新于2018年3月16日
