@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
+
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 class BarStatusLollipop {
 
@@ -216,12 +218,4 @@ class BarStatusLollipop {
         });
     }
 
-    private static int getStatusBarHeight(Context context) {
-        int result = 0;
-        int resId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resId > 0) {
-            result = context.getResources().getDimensionPixelOffset(resId);
-        }
-        return result;
-    }
 }

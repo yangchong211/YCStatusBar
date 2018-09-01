@@ -23,6 +23,8 @@ import java.lang.reflect.Field;
 
 import cn.ycbjie.ycstatusbarlib.R;
 
+import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
+
 
 @TargetApi(Build.VERSION_CODES.KITKAT)
 class BarStatusKitKat {
@@ -51,7 +53,8 @@ class BarStatusKitKat {
             mContentChild.setFitsSystemWindows(false);
         }
         //如果在Activity中使用了ActionBar则需要再将布局与状态栏的高度跳高一个ActionBar的高度，否则内容会被ActionBar遮挡
-        int actionBarId = activity.getResources().getIdentifier("action_bar", "id", activity.getPackageName());
+        int actionBarId = activity.getResources().getIdentifier("action_bar", "id",
+                activity.getPackageName());
         View view = activity.findViewById(actionBarId);
         if (view != null) {
             TypedValue typedValue = new TypedValue();
@@ -267,14 +270,6 @@ class BarStatusKitKat {
         }
     }
 
-    private static int getStatusBarHeight(Context context) {
-        int result = 0;
-        int resId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resId > 0) {
-            result = context.getResources().getDimensionPixelOffset(resId);
-        }
-        return result;
-    }
 
     private static void removeMarginTopOfContentChild(View mContentChild, int statusBarHeight) {
         if (mContentChild == null) {

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import static cn.ycbjie.ycstatusbarlib.StatusBarHeightUtils.getStatusBarHeight;
+import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
 
 /**
@@ -31,7 +31,9 @@ public class StatusBarUtils {
      * @param drawerLayout DrawerLayout
      * @param color        状态栏颜色值
      */
-    public static void setColorNoTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color) {
+    public static void setColorNoTranslucentForDrawerLayout(Activity activity,
+                                                            DrawerLayout drawerLayout,
+                                                            @ColorInt int color) {
         setColorForDrawerLayout(activity, drawerLayout, color, 0);
     }
 
@@ -43,7 +45,8 @@ public class StatusBarUtils {
      * @param color          状态栏颜色值
      * @param statusBarAlpha 状态栏透明度
      */
-    public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color, int statusBarAlpha) {
+    public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout,
+                                               @ColorInt int color, int statusBarAlpha) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }

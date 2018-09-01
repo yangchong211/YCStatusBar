@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ImageView;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.dlBar.StatusBarUtils;
@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnStatusbarWhiteToolbar;
     @Bind(R.id.btn_statusbar_white_coordinator)
     Button btnStatusbarWhiteCoordinator;
+    @Bind(R.id.btn_statusbar_fragment)
+    Button btnStatusbarFragment;
+    @Bind(R.id.btn_statusbar_fragment2)
+    Button btnStatusbarFragment2;
+    @Bind(R.id.btn_statusbar_fragment3)
+    Button btnStatusbarFragment3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +110,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStatusbarWhite.setOnClickListener(this);
         btnStatusbarWhiteToolbar.setOnClickListener(this);
         btnStatusbarWhiteCoordinator.setOnClickListener(this);
+        btnStatusbarFragment.setOnClickListener(this);
+        btnStatusbarFragment2.setOnClickListener(this);
+        btnStatusbarFragment3.setOnClickListener(this);
     }
 
 
@@ -143,6 +153,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_statusbar_white_coordinator:
                 intent.setClass(this, StatusBarWhiteCoordinatorActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_statusbar_fragment:
+                intent.setClass(this, StatusBarFragmentActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_statusbar_fragment2:
+                intent.setClass(this, StatusBarFragment2Activity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_statusbar_fragment3:
+                intent.setClass(this, StatusBarFragment3Activity.class);
                 startActivity(intent);
                 break;
             default:

@@ -12,25 +12,20 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".StatusBarColorActivity" />
-        <activity
-            android:name=".StatusBarColorToolBarActivity" />
-        <activity
-            android:name=".StatusBarTranslucent"/>
-        <activity
-            android:name=".StatusBarColorCoordinatorActivity" />
-        <activity
-            android:name=".StatusBarTranslucentCoordinatorActivity"/>
-        <activity
-            android:name=".StatusBarWhiteActivity"/>
-        <activity
-            android:name=".StatusBarWhiteToolBarActivity"/>
-        <activity
-            android:name=".StatusBarWhiteCoordinatorActivity"/>
+        <activity android:name=".StatusBarColorToolBarActivity" />
+        <activity android:name=".StatusBarTranslucent"/>
+        <activity android:name=".StatusBarColorCoordinatorActivity" />
+        <activity android:name=".StatusBarTranslucentCoordinatorActivity"/>
+        <activity android:name=".StatusBarWhiteActivity"/>
+        <activity android:name=".StatusBarWhiteToolBarActivity"/>
+        <activity android:name=".StatusBarWhiteCoordinatorActivity"/>
+        <activity android:name=".StatusBarFragmentActivity"/>
+        <activity android:name=".StatusBarFragment2Activity"/>
+        <activity android:name=".StatusBarFragment3Activity"/>
     </application>
 
 </manifest>

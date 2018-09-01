@@ -21,6 +21,8 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+
 /**
  * ================================================
  * 作    者：杨充
@@ -96,7 +98,8 @@ public class YCAppBar {
                 activity.getWindow().setStatusBarColor(color);
 
                 //fitsSystemWindow 为 false, 不预留系统栏位置.
-                ViewGroup mContentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
+                ViewGroup mContentView = (ViewGroup) activity.getWindow()
+                        .findViewById(Window.ID_ANDROID_CONTENT);
                 View mChildView = mContentView.getChildAt(0);
                 if (mChildView != null) {
                     mChildView.setFitsSystemWindows(true);
@@ -125,8 +128,7 @@ public class YCAppBar {
      * MIUI的沉浸支持透明白色字体和透明黑色字体
      * https://dev.mi.com/console/doc/detail?pId=1159
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    static boolean setStatusBarLightMode(Activity activity, boolean darkmode) {
+    public static boolean setStatusBarLightMode(Activity activity, boolean darkmode) {
         try {
             @SuppressLint("PrivateApi")
             Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
@@ -153,7 +155,7 @@ public class YCAppBar {
     /**
      * 设置状态栏图标为深色和魅族特定的文字风格，Flyme4.0以上
      */
-    static boolean FlymeSetStatusBarLightMode(Activity activity, boolean darkmode) {
+    public static boolean FlymeSetStatusBarLightMode(Activity activity, boolean darkmode) {
         try {
             WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
             Field darkFlag = WindowManager.LayoutParams.class

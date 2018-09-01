@@ -3,11 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/YCStatusBar.iml" filepath="$PROJECT_DIR$/YCStatusBar.iml" />
-      <module fileurl="file://D:\GitHub\YCStatusBar\YCStatusBar.iml" filepath="D:\GitHub\YCStatusBar\YCStatusBar.iml" />
       <module fileurl="file://$PROJECT_DIR$/YCStatusBarLib/YCStatusBarLib.iml" filepath="$PROJECT_DIR$/YCStatusBarLib/YCStatusBarLib.iml" />
-      <module fileurl="file://D:\GitHub\YCStatusBar\YCStatusBarLib\YCStatusBarLib.iml" filepath="D:\GitHub\YCStatusBar\YCStatusBarLib\YCStatusBarLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\GitHub\YCStatusBar\app\app.iml" filepath="D:\GitHub\YCStatusBar\app\app.iml" />
     </modules>
   </component>
 </project>
