@@ -7,12 +7,18 @@
 
 ### 0.说明
 - **状态栏工具类，应该可以满足绝大多数的使用场景。具体可以参考代码案例，欢迎star！！**
-- **关于状态栏核心原理**
+- 1.[技术博客汇总](https://www.jianshu.com/p/614cb839182c)
+- 2.[开源项目汇总](https://blog.csdn.net/m0_37700275/article/details/80863574)
+- 3.[生活博客汇总](https://blog.csdn.net/m0_37700275/article/details/79832978)
+- 4.[喜马拉雅音频汇总](https://www.jianshu.com/p/f665de16d1eb)
+- 5.[其他汇总](https://www.jianshu.com/p/53017c3fc75d)
 
 
 
 ### 1.关于如何集成
 - 在gradle中添加：compile 'cn.yc:YCStatusBarLib:1.3.1'
+- 项目地址：https://github.com/yangchong211/YCStatusBar
+
 
 
 ### 2.关于如何使用
