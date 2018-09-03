@@ -60,6 +60,15 @@ public class StatusBarFragmentActivity extends AppCompatActivity {
      * 状态栏文字和图标换成深色，其他的系统状态栏文字都是白色的，换成浅色背景的话就看不到了。
      */
 
+    /**
+     * 出现的问题：
+     * 如果是在设置fragment中，有的是白色【或者其他色】，有的是透明色【就相当于隐藏了状态栏】，则还是会出现设置透明色无效
+     *
+     * 思路：
+     * 这其实更像是一个效果，而不是问题，透明色时应该显示了下面的Fragment的颜色，所以看起来无效。
+     * 实际上每一个Activity的Window都有背景色，如果你把Activity的Window设置为透明色，也会出现这个效果，
+     * 所以你应该给Fragment的RootView设置一个背景色，才能更像一个Activity，再设置透明色就没有问题了。
+     */
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
