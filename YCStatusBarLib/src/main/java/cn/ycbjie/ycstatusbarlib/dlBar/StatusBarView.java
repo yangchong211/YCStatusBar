@@ -4,14 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
+
 /**
- * ================================================
- * 作    者：杨充
- * 版    本：1.0
- * 创建日期：2017/3/27
- * 描    述：StatusBarView
- * 修订历史：
- * ================================================
+ * <pre>
+ *     @author yangchong
+ *     blog  : https://github.com/yangchong211/YCStatusBar
+ *     time  : 2018/06/4
+ *     desc  : StatusBarView
+ *     revise: 使用方法请看GitHub说明文档
+ * </pre>
  */
 public class StatusBarView extends View {
 

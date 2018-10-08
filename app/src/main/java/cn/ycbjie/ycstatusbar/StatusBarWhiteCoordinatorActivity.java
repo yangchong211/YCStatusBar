@@ -9,7 +9,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarWhiteCoordinatorActivity extends AppCompatActivity {
@@ -27,6 +27,6 @@ public class StatusBarWhiteCoordinatorActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_layout);
         collapsingToolbarLayout.setTitle(getString(R.string.app_name));
 
-        YCAppBar.setStatusBarLightForCollapsingToolbar(this, mAppBarLayout, collapsingToolbarLayout, toolbar, Color.WHITE);
+        StateAppBar.setStatusBarLightForCollapsingToolbar(this, mAppBarLayout, collapsingToolbarLayout, toolbar, Color.WHITE);
     }
 }

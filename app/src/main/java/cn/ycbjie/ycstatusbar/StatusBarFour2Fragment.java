@@ -1,7 +1,6 @@
 package cn.ycbjie.ycstatusbar;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 public class StatusBarFour2Fragment extends Fragment {
 
@@ -38,9 +37,8 @@ public class StatusBarFour2Fragment extends Fragment {
         if (isVisibleToUser){
             Log.e("StatusBarFragment2","setUserVisibleHint"+4);
             if(activity!=null){
-                YCAppBar.translucentStatusBar(activity,
+                StateAppBar.translucentStatusBar(activity,
                         true);
-                StatusBarUtils.StatusBarLightMode(activity);
             }
         }//展示
     }

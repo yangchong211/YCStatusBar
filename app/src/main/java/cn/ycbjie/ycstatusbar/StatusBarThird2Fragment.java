@@ -5,14 +5,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 public class StatusBarThird2Fragment extends Fragment {
 
@@ -38,7 +37,7 @@ public class StatusBarThird2Fragment extends Fragment {
         if (isVisibleToUser){
             Log.e("StatusBarFragment2","setUserVisibleHint"+3);
             if(activity!=null){
-                YCAppBar.setStatusBarColor(activity,
+                StateAppBar.setStatusBarColor(activity,
                         Color.RED);
             }
         }//展示

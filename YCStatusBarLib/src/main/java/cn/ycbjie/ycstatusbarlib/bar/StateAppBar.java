@@ -7,7 +7,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewCompat;
@@ -17,27 +16,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
 
 /**
- * ================================================
- * 作    者：杨充
- * 版    本：1.0
- * 创建日期：2017/3/27
- * 描    述：状态栏工具类
- * 修订历史：
- * 更多详细内容：
- *          GitHub：https://github.com/yangchong211
- *          博客汇总：https://www.jianshu.com/p/53017c3fc75d
- *          欢迎star
- * ================================================
+ * <pre>
+ *     @author yangchong
+ *     blog  : https://github.com/yangchong211/YCStatusBar
+ *     time  : 2018/06/4
+ *     desc  : 状态栏工具类
+ *     revise: 使用方法请看GitHub说明文档
+ * </pre>
  */
-public class YCAppBar {
-
+public final class StateAppBar {
 
     public static void setStatusBarColor(Activity activity, int statusColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -132,7 +124,6 @@ public class YCAppBar {
         try {
             @SuppressLint("PrivateApi")
             Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-
             Window window = activity.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -160,8 +151,7 @@ public class YCAppBar {
             WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
             Field darkFlag = WindowManager.LayoutParams.class
                     .getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
-            Field meizuFlags = WindowManager.LayoutParams.class
-                    .getDeclaredField("meizuFlags");
+            Field meizuFlags = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
             darkFlag.setAccessible(true);
             meizuFlags.setAccessible(true);
             int bit = darkFlag.getInt(null);

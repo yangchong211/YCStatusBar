@@ -4,7 +4,6 @@ package cn.ycbjie.ycstatusbarlib.bar;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.AppBarLayout;
@@ -27,7 +26,7 @@ import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
 
 @TargetApi(Build.VERSION_CODES.KITKAT)
-class BarStatusKitKat {
+final class BarStatusKitKat {
 
     private static final String TAG_FAKE_STATUS_BAR_VIEW = "statusBarView";
     private static final String TAG_MARGIN_ADDED = "marginAdded";
@@ -41,7 +40,6 @@ class BarStatusKitKat {
         View mContentChild = mContentView.getChildAt(0);
         //获取状态栏高度
         int statusBarHeight = getStatusBarHeight(activity);
-
         //如果已经存在假状态栏则移除，防止重复添加
         removeFakeStatusBarViewIfExist(activity);
         //添加一个View来作为状态栏的填充
@@ -60,7 +58,7 @@ class BarStatusKitKat {
             TypedValue typedValue = new TypedValue();
             if (activity.getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
                 int actionBarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getResources().getDisplayMetrics());
-                YCAppBar.setContentTopPadding(activity, actionBarHeight);
+                StateAppBar.setContentTopPadding(activity, actionBarHeight);
             }
         }
     }
@@ -203,12 +201,12 @@ class BarStatusKitKat {
             @SuppressLint("NewApi")
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (Math.abs(verticalOffset) >= (appBarLayout.getTotalScrollRange() - YCAppBar.getPxFromDp(activity, 56))) {
+                if (Math.abs(verticalOffset) >= (appBarLayout.getTotalScrollRange() - StateAppBar.getPxFromDp(activity, 56))) {
                     if (appBarLayoutState != COLLAPSED) {
                         appBarLayoutState = COLLAPSED;
 
-                        if (YCAppBar.setStatusBarLightMode(activity, true) ||
-                                YCAppBar.FlymeSetStatusBarLightMode(activity, true)) {
+                        if (StateAppBar.setStatusBarLightMode(activity, true) ||
+                                StateAppBar.FlymeSetStatusBarLightMode(activity, true)) {
                         }
                         if (statusView.getAlpha() == 0) {
                             statusView.animate().cancel();
@@ -219,8 +217,8 @@ class BarStatusKitKat {
                     if (appBarLayoutState != EXPANDED) {
                         appBarLayoutState = EXPANDED;
 
-                        if (YCAppBar.setStatusBarLightMode(activity, false) ||
-                                YCAppBar.FlymeSetStatusBarLightMode(activity, false)) {
+                        if (StateAppBar.setStatusBarLightMode(activity, false) ||
+                                StateAppBar.FlymeSetStatusBarLightMode(activity, false)) {
                         }
                         if (statusView.getAlpha() == 1) {
                             statusView.animate().cancel();

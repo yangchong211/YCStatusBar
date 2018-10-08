@@ -1,7 +1,5 @@
 package cn.ycbjie.ycstatusbar;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -18,7 +16,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarFragment2Activity extends AppCompatActivity {
@@ -50,9 +48,7 @@ public class StatusBarFragment2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_statusbar_fragment);
         ButterKnife.bind(this);
 
-        YCAppBar.setStatusBarColor(this,
-                ContextCompat.getColor(this,
-                        R.color.white));
+
         StatusBarUtils.StatusBarLightMode(this);
 
         ArrayList<String> titleList = new ArrayList<>();

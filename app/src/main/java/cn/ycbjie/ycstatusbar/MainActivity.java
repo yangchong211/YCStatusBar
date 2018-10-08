@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import cn.ycbjie.ycstatusbarlib.dlBar.StatusBarUtils;
+import cn.ycbjie.ycstatusbarlib.dlBar.DlStatusBar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*StatusBarUtils.setColorNoTranslucentForDrawerLayout(this, drawerLayout,
                 getResources().getColor(R.color.colorTheme));*/
         //为DrawerLayout 布局设置状态栏变色，也就是加上透明度
-        StatusBarUtils.setColorForDrawerLayout(this, drawerLayout,
+        DlStatusBar.setColorForDrawerLayout(this, drawerLayout,
                 getResources().getColor(R.color.colorTheme), 0);
     }
 

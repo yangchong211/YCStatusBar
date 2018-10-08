@@ -3,7 +3,6 @@ package cn.ycbjie.ycstatusbarlib.bar;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.AppBarLayout;
@@ -186,14 +185,14 @@ class BarStatusLollipop {
                         //修改状态标记为折叠
                         appBarLayoutState = COLLAPSED;
                         //先判断是否为小米设备，设置状态栏不成功判断是否为6.0以上设备，不是6.0以上设备再判断是否为魅族设备，不是魅族设备就只设置状态栏颜色
-                        if (YCAppBar.setStatusBarLightMode(activity, true)) {
+                        if (StateAppBar.setStatusBarLightMode(activity, true)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             activity.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                             activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                             activity.getWindow().setStatusBarColor(statusBarColor);
-                        } else if (!YCAppBar.FlymeSetStatusBarLightMode(activity, true)) {
+                        } else if (!StateAppBar.FlymeSetStatusBarLightMode(activity, true)) {
                             setStatusBarColor(activity, statusBarColor);
                         }
                     }
@@ -203,13 +202,13 @@ class BarStatusLollipop {
                         //修改状态标记为展开
                         appBarLayoutState = EXPANDED;
 
-                        if (YCAppBar.setStatusBarLightMode(activity, false)) {
+                        if (StateAppBar.setStatusBarLightMode(activity, false)) {
                             translucentStatusBar(activity, true);
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-                        } else if (YCAppBar.FlymeSetStatusBarLightMode(activity, true)) {
+                        } else if (StateAppBar.FlymeSetStatusBarLightMode(activity, true)) {
                         }
                         translucentStatusBar(activity, true);
                     }

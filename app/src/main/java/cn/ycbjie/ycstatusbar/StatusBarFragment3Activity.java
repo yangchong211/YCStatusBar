@@ -1,9 +1,5 @@
 package cn.ycbjie.ycstatusbar;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,9 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +16,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarFragment3Activity extends AppCompatActivity {
@@ -53,7 +47,8 @@ public class StatusBarFragment3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_fragment);
         ButterKnife.bind(this);
-        YCAppBar.translucentStatusBar(this,true);
+        StateAppBar.translucentStatusBar(this,true);
+        //状态栏亮色模式，设置状态栏黑色文字、图标
         StatusBarUtils.StatusBarLightMode(this);
 
         ArrayList<String> titleList = new ArrayList<>();

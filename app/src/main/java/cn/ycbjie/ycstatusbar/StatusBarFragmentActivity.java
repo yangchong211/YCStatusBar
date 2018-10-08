@@ -1,8 +1,6 @@
 package cn.ycbjie.ycstatusbar;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,7 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,7 +22,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarFragmentActivity extends AppCompatActivity {
@@ -75,7 +72,7 @@ public class StatusBarFragmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_fragment);
         ButterKnife.bind(this);
-        YCAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
+        StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                         R.color.colorTheme));
         ArrayList<String> titleList = new ArrayList<>();
@@ -108,30 +105,30 @@ public class StatusBarFragmentActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         //设置状态栏为黑色
-                        YCAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
+                        StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                                         R.color.colorTheme));
                         break;
                     case 1:
                         //设置状态栏为红色
-                        YCAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
+                        StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                                         R.color.colorAccent));
                         break;
                     case 2:
                         //设置状态栏为蓝色
-                        YCAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
+                        StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                                         R.color.colorPrimary));
                         break;
                     case 3:
                         //设置状态栏为透明，相当于隐藏状态栏，也称之为沉浸式状态栏
-                        YCAppBar.translucentStatusBar(StatusBarFragmentActivity.this,
+                        StateAppBar.translucentStatusBar(StatusBarFragmentActivity.this,
                                 true);
                         break;
                     case 4:
                         //设置状态栏为白色
-                        YCAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
+                        StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                                         R.color.white));
                         //状态栏亮色模式，设置状态栏黑色文字、图标

@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import cn.ycbjie.ycstatusbarlib.bar.YCAppBar;
+import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarColorToolBarActivity extends AppCompatActivity {
@@ -19,6 +19,6 @@ public class StatusBarColorToolBarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("StatusBarColorToolbar");
 
-        YCAppBar.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorAccent));
+        StateAppBar.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorAccent));
     }
 }
