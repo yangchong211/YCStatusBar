@@ -26,9 +26,9 @@
 - **2.1.1 DrawerLayout设置状态栏**
 ```
 //为DrawerLayout 布局设置状态栏颜色,纯色
-StatusBarUtils.setColorNoTranslucentForDrawerLayout(this, drawerLayout,getResources().getColor(R.color.colorTheme));
+DlStatusBar.setColorNoTranslucentForDrawerLayout(this, drawerLayout,getResources().getColor(R.color.colorTheme));
 //为DrawerLayout 布局设置状态栏变色，也就是加上透明度
-StatusBarUtils.setColorForDrawerLayout(this, drawerLayout,getResources().getColor(R.color.colorTheme), 0);
+DlStatusBar.setColorForDrawerLayout(this, drawerLayout,getResources().getColor(R.color.colorTheme), 0);
 ```
 
 - **2.1.2 设置状态栏颜色**
@@ -82,7 +82,6 @@ StateAppBar.setStatusBarLightForCollapsingToolbar(this, mAppBarLayout, collapsin
 - **第一种方法:直接在activity中操作**
 ```
 //例如，ViewPager+TabLayout+Fragment中，很常见
-
 @Override
 public void onPageSelected(int position) {
     switch (position){
@@ -120,10 +119,12 @@ public void onPageSelected(int position) {
     }
 }
 ```
+
 - **第一种方法:activity和Fragment配合使用**
     - 首先设置Activity侵入状态栏，并设置状态栏为透明色，相当于隐藏Activity的状态栏，
       然后在BaseFragment中封装状态栏，由Fragment控制自己的颜色即可；
       但是状态栏字体颜色还是需要通过Activity控制。
+
 ```
 //在activity中
 StateAppBar.translucentStatusBar(this,true);
@@ -171,7 +172,7 @@ StatusBarUtils.StatusBarLightMode(StatusBarFragmentActivity.this);
     - 添加了单Activity多Fragment动态修改状态栏颜色功能
 
 
-### 5.出现的bug及解决方案
+### 5.出现的bug及解决方案，欢迎提出更多bug
 - 1.如果是在设置fragment中，有的是白色【或者其他色】，有的是透明色【就相当于隐藏了状态栏】，则还是会出现设置透明色无效
     - 解决办法：
     - 这其实更像是一个效果，而不是问题，透明色时应该显示了下面的Fragment的颜色，所以看起来无效。
