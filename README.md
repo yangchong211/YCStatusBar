@@ -19,7 +19,8 @@
 ### 1.关于如何集成
 - 在gradle中添加：compile 'cn.yc:YCStatusBarLib:1.4.0'
 - 项目地址：https://github.com/yangchong211/YCStatusBar
-- ![image]()
+- ![image](https://github.com/yangchong211/YCStatusBar/blob/master/image/image1.jpg)
+- ![image](https://github.com/yangchong211/YCStatusBar/blob/master/image/statusBar.gif)
 
 
 ### 2.关于如何使用
