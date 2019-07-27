@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+
 import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
 
@@ -34,6 +36,7 @@ public class DlStatusBar {
     public static void setColorNoTranslucentForDrawerLayout(Activity activity,
                                                             DrawerLayout drawerLayout,
                                                             @ColorInt int color) {
+        StatusBarUtils.checkNull(activity);
         setColorForDrawerLayout(activity, drawerLayout, color, 0);
     }
 
@@ -47,6 +50,7 @@ public class DlStatusBar {
      */
     public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout,
                                                @ColorInt int color, int statusBarAlpha) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }
@@ -90,6 +94,7 @@ public class DlStatusBar {
      * @return 状态栏矩形条
      */
     private static StatusBarView createStatusBarView(Activity activity, @ColorInt int color) {
+        StatusBarUtils.checkNull(activity);
         // 绘制一个和状态栏一样高的矩形
         StatusBarView statusBarView = new StatusBarView(activity);
         LinearLayout.LayoutParams params =
@@ -106,6 +111,7 @@ public class DlStatusBar {
      * @param statusBarAlpha 透明值
      */
     private static void addTranslucentView(Activity activity, int statusBarAlpha) {
+        StatusBarUtils.checkNull(activity);
         ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
         if (contentView.getChildCount() > 1) {
             contentView.getChildAt(1).setBackgroundColor(Color.argb(statusBarAlpha, 0, 0, 0));
@@ -121,6 +127,7 @@ public class DlStatusBar {
      * @return 半透明 View
      */
     private static StatusBarView createTranslucentStatusBarView(Activity activity, int alpha) {
+        StatusBarUtils.checkNull(activity);
         // 绘制一个和状态栏一样高的矩形
         StatusBarView statusBarView = new StatusBarView(activity);
         LinearLayout.LayoutParams params =

@@ -18,8 +18,18 @@ import android.view.WindowManager;
 
 import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
+
+/**
+ * <pre>
+ *     @author yangchong
+ *     blog  : https://github.com/yangchong211/YCStatusBar
+ *     time  : 2018/06/4
+ *     desc  : 状态栏工具类
+ *     revise: 使用方法请看GitHub说明文档
+ * </pre>
+ */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-class BarStatusLollipop {
+final class BarStatusLollipop {
 
     static void setStatusBarColor(Activity activity, int statusColor) {
         Window window = activity.getWindow();

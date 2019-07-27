@@ -19,6 +19,8 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+
 
 /**
  * <pre>
@@ -31,7 +33,13 @@ import java.lang.reflect.Method;
  */
 public final class StateAppBar {
 
-    public static void setStatusBarColor(Activity activity, int statusColor) {
+    /**
+     * 设置状态栏颜色
+     * @param activity                      activity
+     * @param statusColor                   颜色
+     */
+    public static void setStatusBarColor(Activity activity,@ColorInt int statusColor) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //21
             BarStatusLollipop.setStatusBarColor(activity, statusColor);
@@ -41,11 +49,17 @@ public final class StateAppBar {
         }
     }
 
+    /**
+     * 设置透明状态栏
+     * @param activity                      activity
+     */
     public static void translucentStatusBar(Activity activity) {
+        StatusBarUtils.checkNull(activity);
         translucentStatusBar(activity, false);
     }
 
     public static void translucentStatusBar(Activity activity, boolean hideStatusBarBackground) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             BarStatusLollipop.translucentStatusBar(activity, hideStatusBarBackground);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -57,6 +71,7 @@ public final class StateAppBar {
             @NonNull Activity activity, AppBarLayout appBarLayout,
             CollapsingToolbarLayout collapsingToolbarLayout,
             Toolbar toolbar, @ColorInt int statusColor) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             BarStatusLollipop.setStatusBarColorForCollapsingToolbar(activity,
                     appBarLayout, collapsingToolbarLayout, toolbar, statusColor);
@@ -67,7 +82,8 @@ public final class StateAppBar {
     }
 
     @SuppressLint("NewApi")
-    public static void setStatusBarLightMode(Activity activity, int color) {
+    public static void setStatusBarLightMode(Activity activity,@ColorInt int color) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色
             if (setStatusBarLightMode(activity, true) ||
@@ -105,7 +121,8 @@ public final class StateAppBar {
     public static void setStatusBarLightForCollapsingToolbar(
             Activity activity, AppBarLayout appBarLayout,
             CollapsingToolbarLayout collapsingToolbarLayout,
-            Toolbar toolbar, int statusBarColor) {
+            Toolbar toolbar,@ColorInt int statusBarColor) {
+        StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             BarStatusLollipop.setStatusBarWhiteForCollapsingToolbar(activity,
                     appBarLayout, collapsingToolbarLayout, toolbar, statusBarColor);
@@ -121,6 +138,7 @@ public final class StateAppBar {
      * https://dev.mi.com/console/doc/detail?pId=1159
      */
     public static boolean setStatusBarLightMode(Activity activity, boolean darkmode) {
+        StatusBarUtils.checkNull(activity);
         try {
             @SuppressLint("PrivateApi")
             Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
@@ -147,6 +165,7 @@ public final class StateAppBar {
      * 设置状态栏图标为深色和魅族特定的文字风格，Flyme4.0以上
      */
     public static boolean FlymeSetStatusBarLightMode(Activity activity, boolean darkmode) {
+        StatusBarUtils.checkNull(activity);
         try {
             WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
             Field darkFlag = WindowManager.LayoutParams.class
@@ -171,6 +190,7 @@ public final class StateAppBar {
     }
 
     static void setContentTopPadding(Activity activity, int padding) {
+        StatusBarUtils.checkNull(activity);
         ViewGroup mContentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
         mContentView.setPadding(0, padding, 0, 0);
     }

@@ -33,6 +33,7 @@ public class StatusBarUtils {
      * @return              状态栏高度
      */
     public static int getStatusBarHeight(Context context) {
+        checkNull(context);
         int statusBarHeight = 0;
         Resources res = context.getResources();
         int resourceId = res.getIdentifier("status_bar_height",
@@ -119,5 +120,11 @@ public class StatusBarUtils {
         }
     }
 
+
+    public static void checkNull(Object object){
+        if (object == null){
+            throw new NullPointerException("object is not null");
+        }
+    }
 
 }
