@@ -19,17 +19,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarFragmentActivity extends AppCompatActivity {
 
-    @Bind(R.id.tabLayout)
     TabLayout tabLayout;
-    @Bind(R.id.viewpager)
     ViewPager viewpager;
 
     /**
@@ -71,10 +67,12 @@ public class StatusBarFragmentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_fragment);
-        ButterKnife.bind(this);
         StateAppBar.setStatusBarColor(StatusBarFragmentActivity.this,
                 ContextCompat.getColor(StatusBarFragmentActivity.this,
                         R.color.colorTheme));
+
+        viewpager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         ArrayList<String> titleList = new ArrayList<>();
         ArrayList<Fragment> fragmentList = new ArrayList<>();
         BasePagerAdapter pagerAdapter = new BasePagerAdapter(getSupportFragmentManager(), fragmentList, titleList);

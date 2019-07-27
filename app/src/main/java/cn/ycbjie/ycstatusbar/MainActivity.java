@@ -15,57 +15,38 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.dlBar.DlStatusBar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.fl_title_menu)
-    FrameLayout flTitleMenu;
-    @Bind(R.id.tv_title)
-    TextView tvTitle;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-    @Bind(R.id.ll_main)
-    LinearLayout llMain;
-    @Bind(R.id.nav_view)
-    NavigationView navView;
-    @Bind(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
-    @Bind(R.id.btn_statusbar_color)
-    Button btnStatusbarColor;
-    @Bind(R.id.btn_statusbar_color_toolbar)
-    Button btnStatusbarColorToolbar;
-    @Bind(R.id.btn_statusbar_translucent)
-    Button btnStatusbarTranslucent;
-    @Bind(R.id.btn_statusbar_color_coordinator)
-    Button btnStatusbarColorCoordinator;
-    @Bind(R.id.btn_statusbar_translucent_coordinator)
-    Button btnStatusbarTranslucentCoordinator;
-    @Bind(R.id.btn_statusbar_white)
-    Button btnStatusbarWhite;
-    @Bind(R.id.btn_statusbar_white_toolbar)
-    Button btnStatusbarWhiteToolbar;
-    @Bind(R.id.btn_statusbar_white_coordinator)
-    Button btnStatusbarWhiteCoordinator;
-    @Bind(R.id.btn_statusbar_fragment)
-    Button btnStatusbarFragment;
-    @Bind(R.id.btn_statusbar_fragment2)
-    Button btnStatusbarFragment2;
-    @Bind(R.id.btn_statusbar_fragment3)
-    Button btnStatusbarFragment3;
+    private FrameLayout mFlTitleMenu;
+    private TextView mTvTitle;
+    private Toolbar mToolbar;
+    private Button mBtnStatusbarColor;
+    private Button mBtnStatusbarColorToolbar;
+    private Button mBtnStatusbarTranslucent;
+    private Button mBtnStatusbarColorCoordinator;
+    private Button mBtnStatusbarTranslucentCoordinator;
+    private Button mBtnStatusbarWhite;
+    private Button mBtnStatusbarWhiteToolbar;
+    private Button mBtnStatusbarWhiteCoordinator;
+    private Button mBtnStatusbarWhiteCoordinator2;
+    private Button mBtnStatusbarFragment;
+    private Button mBtnStatusbarFragment2;
+    private Button mBtnStatusbarFragment3;
+    private LinearLayout mLlMain;
+    private NavigationView mNavView;
+    private DrawerLayout mDrawerLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        initView();
         initDrawerLayoutStatus();
         initBar();
         initNav();
-        initListener();
     }
 
 
@@ -77,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*StatusBarUtils.setColorNoTranslucentForDrawerLayout(this, drawerLayout,
                 getResources().getColor(R.color.colorTheme));*/
         //为DrawerLayout 布局设置状态栏变色，也就是加上透明度
-        DlStatusBar.setColorForDrawerLayout(this, drawerLayout,
+        DlStatusBar.setColorForDrawerLayout(this, mDrawerLayout,
                 getResources().getColor(R.color.colorTheme), 0);
     }
 
@@ -85,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 初始化ActionBar按钮
      */
     private void initBar() {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             //去除默认Title显示
@@ -97,22 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 初始化侧滑菜单
      */
     private void initNav() {
-        navView.inflateHeaderView(R.layout.nav_header_main);
-    }
-
-    private void initListener() {
-        flTitleMenu.setOnClickListener(this);
-        btnStatusbarColor.setOnClickListener(this);
-        btnStatusbarColorCoordinator.setOnClickListener(this);
-        btnStatusbarColorToolbar.setOnClickListener(this);
-        btnStatusbarTranslucent.setOnClickListener(this);
-        btnStatusbarTranslucentCoordinator.setOnClickListener(this);
-        btnStatusbarWhite.setOnClickListener(this);
-        btnStatusbarWhiteToolbar.setOnClickListener(this);
-        btnStatusbarWhiteCoordinator.setOnClickListener(this);
-        btnStatusbarFragment.setOnClickListener(this);
-        btnStatusbarFragment2.setOnClickListener(this);
-        btnStatusbarFragment3.setOnClickListener(this);
+        mNavView.inflateHeaderView(R.layout.nav_header_main);
     }
 
 
@@ -121,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.fl_title_menu:
-                drawerLayout.openDrawer(GravityCompat.START);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.btn_statusbar_color:
                 intent.setClass(this, StatusBarColorActivity.class);
@@ -155,6 +121,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setClass(this, StatusBarWhiteCoordinatorActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_statusbar_white_coordinator2:
+                intent.setClass(this, StatusBarWhiteCoordinatorActivity2.class);
+                startActivity(intent);
+                break;
             case R.id.btn_statusbar_fragment:
                 intent.setClass(this, StatusBarFragmentActivity.class);
                 startActivity(intent);
@@ -169,6 +139,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             default:
                 break;
+            case R.id.nav_view:
+                break;
+            case R.id.tv_title:
+                break;
+            case R.id.toolbar:
+                break;
+            case R.id.ll_main:
+                break;
+            case R.id.drawer_layout:
+                break;
         }
     }
 
@@ -178,12 +158,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         Log.e("触摸监听", "onBackPressed");
-        if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
     }
 
 
+    private void initView() {
+        mFlTitleMenu = (FrameLayout) findViewById(R.id.fl_title_menu);
+        mTvTitle = (TextView) findViewById(R.id.tv_title);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mBtnStatusbarColor = (Button) findViewById(R.id.btn_statusbar_color);
+        mBtnStatusbarColor.setOnClickListener(this);
+        mBtnStatusbarColorToolbar = (Button) findViewById(R.id.btn_statusbar_color_toolbar);
+        mBtnStatusbarColorToolbar.setOnClickListener(this);
+        mBtnStatusbarTranslucent = (Button) findViewById(R.id.btn_statusbar_translucent);
+        mBtnStatusbarTranslucent.setOnClickListener(this);
+        mBtnStatusbarColorCoordinator = (Button) findViewById(R.id.btn_statusbar_color_coordinator);
+        mBtnStatusbarColorCoordinator.setOnClickListener(this);
+        mBtnStatusbarTranslucentCoordinator = (Button) findViewById(R.id.btn_statusbar_translucent_coordinator);
+        mBtnStatusbarTranslucentCoordinator.setOnClickListener(this);
+        mBtnStatusbarWhite = (Button) findViewById(R.id.btn_statusbar_white);
+        mBtnStatusbarWhite.setOnClickListener(this);
+        mBtnStatusbarWhiteToolbar = (Button) findViewById(R.id.btn_statusbar_white_toolbar);
+        mBtnStatusbarWhiteToolbar.setOnClickListener(this);
+        mBtnStatusbarWhiteCoordinator = (Button) findViewById(R.id.btn_statusbar_white_coordinator);
+        mBtnStatusbarWhiteCoordinator.setOnClickListener(this);
+        mBtnStatusbarWhiteCoordinator2 = (Button) findViewById(R.id.btn_statusbar_white_coordinator2);
+        mBtnStatusbarWhiteCoordinator2.setOnClickListener(this);
+        mBtnStatusbarFragment = (Button) findViewById(R.id.btn_statusbar_fragment);
+        mBtnStatusbarFragment.setOnClickListener(this);
+        mBtnStatusbarFragment2 = (Button) findViewById(R.id.btn_statusbar_fragment2);
+        mBtnStatusbarFragment2.setOnClickListener(this);
+        mBtnStatusbarFragment3 = (Button) findViewById(R.id.btn_statusbar_fragment3);
+        mBtnStatusbarFragment3.setOnClickListener(this);
+        mLlMain = (LinearLayout) findViewById(R.id.ll_main);
+        mNavView = (NavigationView) findViewById(R.id.nav_view);
+        mNavView.setOnClickListener(this);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mFlTitleMenu.setOnClickListener(this);
+        mTvTitle.setOnClickListener(this);
+        mToolbar.setOnClickListener(this);
+        mLlMain.setOnClickListener(this);
+        mDrawerLayout.setOnClickListener(this);
+    }
 }

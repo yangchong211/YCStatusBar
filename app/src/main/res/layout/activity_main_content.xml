@@ -93,7 +93,18 @@
             android:layout_height="48dip"
             android:layout_marginTop="16dip"
             android:background="@color/colorPrimary"
-            android:text="设置状态栏和coordinatorLayout为白色"
+            android:text="设置状态栏和coordinatorLayout为白色1"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_statusbar_white_coordinator2"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="16dip"
+            android:background="@color/colorPrimary"
+            android:text="设置状态栏和coordinatorLayout为白色2"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="12dp" />

@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 public class StatusBarThird3Fragment extends Fragment {
@@ -48,7 +47,6 @@ public class StatusBarThird3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment2_statusbar_translucent, container, false);
-        ButterKnife.bind(this, mView);
         return mView;
     }
 

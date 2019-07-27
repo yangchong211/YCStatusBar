@@ -11,15 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 public class StatusBarSecond3Fragment extends Fragment {
 
-
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
 
     private StatusBarFragment3Activity activity;
 
@@ -54,7 +49,6 @@ public class StatusBarSecond3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment3_statusbar_red, container, false);
-        ButterKnife.bind(this, mView);
         return mView;
     }
 

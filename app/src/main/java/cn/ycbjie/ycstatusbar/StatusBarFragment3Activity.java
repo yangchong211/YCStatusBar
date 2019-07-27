@@ -13,17 +13,13 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 
 public class StatusBarFragment3Activity extends AppCompatActivity {
 
-    @Bind(R.id.tabLayout)
     TabLayout tabLayout;
-    @Bind(R.id.viewpager)
     ViewPager viewpager;
 
     /**
@@ -46,11 +42,12 @@ public class StatusBarFragment3Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_fragment);
-        ButterKnife.bind(this);
+
         StateAppBar.translucentStatusBar(this,true);
         //状态栏亮色模式，设置状态栏黑色文字、图标
         StatusBarUtils.StatusBarLightMode(this);
-
+        viewpager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         ArrayList<String> titleList = new ArrayList<>();
         ArrayList<Fragment> fragmentList = new ArrayList<>();
         BasePagerAdapter pagerAdapter = new BasePagerAdapter(getSupportFragmentManager(), fragmentList, titleList);

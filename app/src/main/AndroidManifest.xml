@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cn.ycbjie.ycstatusbar">
 
     <application
@@ -8,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +25,7 @@
         <activity android:name=".StatusBarWhiteActivity"/>
         <activity android:name=".StatusBarWhiteToolBarActivity"/>
         <activity android:name=".StatusBarWhiteCoordinatorActivity"/>
+        <activity android:name=".StatusBarWhiteCoordinatorActivity2"/>
         <activity android:name=".StatusBarFragmentActivity"/>
         <activity android:name=".StatusBarFragment2Activity"/>
         <activity android:name=".StatusBarFragment3Activity"/>

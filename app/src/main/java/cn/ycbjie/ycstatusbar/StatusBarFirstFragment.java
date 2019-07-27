@@ -10,17 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
 public class StatusBarFirstFragment extends Fragment {
 
-    @Bind(R.id.status_bar_fix)
-    View statusBarFix;
-    @Bind(R.id.toggle)
-    AppCompatButton toggle;
+
 
     private StatusBarFragmentActivity activity;
 
@@ -40,7 +34,6 @@ public class StatusBarFirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment_statusbar_translucent, container, false);
-        ButterKnife.bind(this, mView);
         return mView;
     }
 

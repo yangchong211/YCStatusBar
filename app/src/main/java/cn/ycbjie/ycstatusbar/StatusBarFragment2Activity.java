@@ -6,38 +6,34 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
-import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
-
 
 public class StatusBarFragment2Activity extends AppCompatActivity {
 
-    @Bind(R.id.tabLayout)
     TabLayout tabLayout;
-    @Bind(R.id.viewpager)
     ViewPager viewpager;
+    private ViewPager mViewpager;
+    private TabLayout mTabLayout;
 
     /**
      * 方法2：布局里添加占位状态栏
      * 对一个Activity中有多个Fragment，每个Fragment都有不同的状态栏颜色
      * 1.在activity中设置状态栏隐藏或者透明
      * 2.在activity中设置[如果不在activity中设置，则需要在activity中的fragment都设置]
-     *   android:fitsSystemWindows="true"
+     * android:fitsSystemWindows="true"
      * 3.添加空的view就是用来填充状态栏的
      * 4.设置view的颜色
-     *      遇到问题：由于设置了主题背景颜色为白色，默认白色。因此，即使设置View的颜色透明也无法生效
-     *
-     *
-     *
+     * 遇到问题：由于设置了主题背景颜色为白色，默认白色。因此，即使设置View的颜色透明也无法生效
+     * <p>
+     * <p>
+     * <p>
      * 方法3：
      */
 
@@ -46,7 +42,7 @@ public class StatusBarFragment2Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_fragment);
-        ButterKnife.bind(this);
+        initView();
 
 
         StatusBarUtils.StatusBarLightMode(this);
@@ -69,6 +65,11 @@ public class StatusBarFragment2Activity extends AppCompatActivity {
             tabLayout.addTab(tabLayout.newTab().setText(titleList.get(i)));
         }
         pagerAdapter.notifyDataSetChanged();
+    }
+
+    private void initView() {
+        viewpager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
     }
 
 
