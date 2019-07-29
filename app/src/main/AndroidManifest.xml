@@ -26,6 +26,7 @@
         <activity android:name=".StatusBarWhiteToolBarActivity"/>
         <activity android:name=".StatusBarWhiteCoordinatorActivity"/>
         <activity android:name=".StatusBarWhiteCoordinatorActivity2"/>
+        <activity android:name=".StatusBarWhiteCoordinatorActivity3"/>
         <activity android:name=".StatusBarFragmentActivity"/>
         <activity android:name=".StatusBarFragment2Activity"/>
         <activity android:name=".StatusBarFragment3Activity"/>

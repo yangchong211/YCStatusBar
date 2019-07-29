@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +18,7 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/white"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             app:statusBarScrim="@color/white">
 
             <LinearLayout
@@ -78,30 +79,14 @@
             </android.support.v7.widget.Toolbar>
 
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar2"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="bottom"
-                android:gravity="bottom"
-                android:paddingStart="0dp"
-                app:contentInsetStart="0dp"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-
-
-
-            </android.support.v7.widget.Toolbar>
-
-
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:fitsSystemWindows="true"
+            android:background="@color/colorPrimaryDark"
             android:gravity="center_vertical">
             <TextView
                 android:layout_width="match_parent"

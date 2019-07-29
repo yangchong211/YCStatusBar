@@ -58,6 +58,11 @@ public final class StateAppBar {
         translucentStatusBar(activity, false);
     }
 
+    /**
+     * 设置透明状态栏
+     * @param activity                      activity
+     * @param hideStatusBarBackground       是否隐藏状态栏
+     */
     public static void translucentStatusBar(Activity activity, boolean hideStatusBarBackground) {
         StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -67,6 +72,14 @@ public final class StateAppBar {
         }
     }
 
+    /**
+     * 设置AppBarLayout折叠布局的状态栏颜色
+     * @param activity                      activity
+     * @param appBarLayout                  appBar
+     * @param collapsingToolbarLayout       collapsingToolbarLayout
+     * @param toolbar                       toolbar
+     * @param statusColor                   颜色
+     */
     public static void setStatusBarColorForCollapsingToolbar(
             @NonNull Activity activity, AppBarLayout appBarLayout,
             CollapsingToolbarLayout collapsingToolbarLayout,
