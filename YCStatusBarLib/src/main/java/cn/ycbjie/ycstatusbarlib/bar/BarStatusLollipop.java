@@ -5,6 +5,8 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.OnApplyWindowInsetsListener;
@@ -31,7 +33,12 @@ import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 final class BarStatusLollipop {
 
-    static void setStatusBarColor(Activity activity, int statusColor) {
+    /**
+     * 设置状态栏的颜色
+     * @param activity                          activity
+     * @param statusColor                       颜色
+     */
+    static void setStatusBarColor(Activity activity, @ColorInt int statusColor) {
         Window window = activity.getWindow();
         //取消状态栏透明
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -50,6 +57,11 @@ final class BarStatusLollipop {
         }
     }
 
+    /**
+     * 设置状态栏透明效果
+     * @param activity                          activity
+     * @param hideStatusBarBackground           是否隐藏状态栏
+     */
     static void translucentStatusBar(Activity activity, boolean hideStatusBarBackground) {
         Window window = activity.getWindow();
         //添加Flag把状态栏设为可绘制模式
@@ -76,7 +88,17 @@ final class BarStatusLollipop {
         }
     }
 
-    static void setStatusBarColorForCollapsingToolbar(final Activity activity, final AppBarLayout appBarLayout, final CollapsingToolbarLayout collapsingToolbarLayout,
+    /**
+     * 设置AppBarLayout折叠布局的状态栏颜色
+     * @param activity                      activity
+     * @param appBarLayout                  appBar
+     * @param collapsingToolbarLayout       collapsingToolbarLayout
+     * @param toolbar                       toolbar
+     * @param statusColor                   颜色
+     */
+    static void setStatusBarColorForCollapsingToolbar(final Activity activity,
+                                                      final AppBarLayout appBarLayout,
+                                                      final CollapsingToolbarLayout collapsingToolbarLayout,
                                                       Toolbar toolbar, final int statusColor) {
         final Window window = activity.getWindow();
         //取消设置Window半透明的Flag
