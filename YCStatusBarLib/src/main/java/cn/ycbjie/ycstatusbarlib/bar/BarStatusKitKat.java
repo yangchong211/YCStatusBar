@@ -36,6 +36,7 @@ import android.widget.FrameLayout;
 import java.lang.reflect.Field;
 
 import cn.ycbjie.ycstatusbarlib.R;
+import cn.ycbjie.ycstatusbarlib.dlBar.StatusBarView;
 
 import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 
@@ -96,7 +97,9 @@ final class BarStatusKitKat {
 
         //移除已经存在假状态栏则,并且取消它的Margin间距
         removeFakeStatusBarViewIfExist(activity);
-        removeMarginTopOfContentChild(mContentChild, getStatusBarHeight(activity));
+        //获取状态栏的高度
+        int statusBarHeight = getStatusBarHeight(activity);
+        removeMarginTopOfContentChild(mContentChild, statusBarHeight);
         if (mContentChild != null) {
             //fitsSystemWindow 为 false, 不预留系统栏位置.
             mContentChild.setFitsSystemWindows(false);
@@ -254,28 +257,39 @@ final class BarStatusKitKat {
         });
     }
 
+    /**
+     * 如果已经存在假状态栏则移除，假状态栏是指StatusBarView，添加之前可以先移除操作，避免重复添加
+     * @param activity                      activity
+     */
     private static void removeFakeStatusBarViewIfExist(Activity activity) {
         Window window = activity.getWindow();
         ViewGroup mDecorView = (ViewGroup) window.getDecorView();
-
         View fakeView = mDecorView.findViewWithTag(TAG_FAKE_STATUS_BAR_VIEW);
         if (fakeView != null) {
             mDecorView.removeView(fakeView);
         }
     }
 
+    /**
+     * 添加一个假的状态栏
+     * @param activity                      activity
+     * @param statusBarColor                状态栏颜色
+     * @param statusBarHeight               状态栏高度，这个高度可以获取
+     * @return
+     */
     private static View addFakeStatusBarView(Activity activity, int statusBarColor, int statusBarHeight) {
         Window window = activity.getWindow();
         ViewGroup mDecorView = (ViewGroup) window.getDecorView();
 
-        View mStatusBarView = new View(activity);
+        //创建一个假的状态栏，添加到DecorView上
+        StatusBarView mStatusBarView = new StatusBarView(activity);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight);
         layoutParams.gravity = Gravity.TOP;
         mStatusBarView.setLayoutParams(layoutParams);
         mStatusBarView.setBackgroundColor(statusBarColor);
         mStatusBarView.setTag(TAG_FAKE_STATUS_BAR_VIEW);
-
+        //添加view
         mDecorView.addView(mStatusBarView);
         return mStatusBarView;
     }
@@ -292,7 +306,6 @@ final class BarStatusKitKat {
             mContentChild.setTag(TAG_MARGIN_ADDED);
         }
     }
-
 
     private static void removeMarginTopOfContentChild(View mContentChild, int statusBarHeight) {
         if (mContentChild == null) {
