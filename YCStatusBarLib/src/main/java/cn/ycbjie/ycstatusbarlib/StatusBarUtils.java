@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
+import cn.ycbjie.ycstatusbarlib.utils.RomUtils;
+import cn.ycbjie.ycstatusbarlib.utils.StatusBarColorUtils;
 
 
 /**
@@ -61,6 +63,18 @@ public class StatusBarUtils {
     }
 
     /**
+     * 设置状态栏字体图标颜色
+     *
+     * @param activity 当前activity
+     * @param dark     是否深色 true为深色 false 为白色
+     */
+    public static void setMeiZu(Activity activity , boolean dark){
+        if (RomUtils.isFlyme()){
+            StatusBarColorUtils.setStatusBarDarkIcon(activity , dark);
+        }
+    }
+
+    /**
      * 状态栏亮色模式，设置状态栏黑色文字、图标，
      * 适配4.4以上版本MIUIV、Flyme和6.0以上版本其他Android
      * @param activity      activity
@@ -70,10 +84,13 @@ public class StatusBarUtils {
         int result=0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if(StateAppBar.setStatusBarLightMode(activity, true)){
+                //是否是MIUI
                 result=1;
             }else if(StateAppBar.FlymeSetStatusBarLightMode(activity, true)){
+                //是否是Flyme
                 result=2;
             }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                //其他
                 activity.getWindow().getDecorView().
                         setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
                                 View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -119,7 +136,6 @@ public class StatusBarUtils {
                     View.SYSTEM_UI_FLAG_VISIBLE);
         }
     }
-
 
     public static void checkNull(Object object){
         if (object == null){
