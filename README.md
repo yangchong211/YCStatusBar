@@ -193,12 +193,14 @@ StatusBarUtils.StatusBarLightMode(StatusBarFragmentActivity.this);
 
 ### 6.关于其他介绍
 #### 关于我的博客
-- 我的个人站点：www.yczbj.org，www.ycbjie.cn
 - github：https://github.com/yangchong211
-- 知乎：https://www.zhihu.com/people/yang-chong-69-24/pins/posts
+- 知乎：https://www.zhihu.com/people/yczbj/activities
 - 简书：http://www.jianshu.com/u/b7b2c6ed9284
 - csdn：http://my.csdn.net/m0_37700275
 - 喜马拉雅听书：http://www.ximalaya.com/zhubo/71989305/
+- 开源中国：https://my.oschina.net/zbj1618/blog
 - 泡在网上的日子：http://www.jcodecraeer.com/member/content_list.php?channelid=1
 - 邮箱：yangchong211@163.com
 - 阿里云博客：https://yq.aliyun.com/users/article?spm=5176.100- 239.headeruserinfo.3.dT4bcV
+- segmentfault头条：https://segmentfault.com/u/xiangjianyu/articles
+- 掘金：https://juejin.im/user/5939433efe88c2006afa0c6e

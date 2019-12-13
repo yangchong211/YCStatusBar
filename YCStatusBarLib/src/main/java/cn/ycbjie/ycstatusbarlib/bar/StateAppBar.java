@@ -1,3 +1,18 @@
+/*
+Copyright 2017 yangchong211（github.com/yangchong211）
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package cn.ycbjie.ycstatusbarlib.bar;
 
 
@@ -26,7 +41,7 @@ import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
  * <pre>
  *     @author yangchong
  *     blog  : https://github.com/yangchong211/YCStatusBar
- *     time  : 2018/06/4
+ *     time  : 2017/06/4
  *     desc  : 状态栏工具类
  *     revise: 使用方法请看GitHub说明文档
  * </pre>
@@ -41,7 +56,7 @@ public final class StateAppBar {
     public static void setStatusBarColor(Activity activity,@ColorInt int statusColor) {
         StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //21
+            //21，大于21设置状态栏颜色
             BarStatusLollipop.setStatusBarColor(activity, statusColor);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //19
@@ -94,8 +109,13 @@ public final class StateAppBar {
         }
     }
 
+    /**
+     * 设置状态栏颜色
+     * @param activity                      activity
+     * @param color                         颜色
+     */
     @SuppressLint("NewApi")
-    public static void setStatusBarLightMode(Activity activity,@ColorInt int color) {
+    public static void setStatusBarLightMode(Activity activity, @ColorInt int color) {
         StatusBarUtils.checkNull(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色

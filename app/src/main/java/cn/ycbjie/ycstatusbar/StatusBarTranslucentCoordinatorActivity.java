@@ -20,8 +20,8 @@ public class StatusBarTranslucentCoordinatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statusbar_translucent_coordinator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("StatusBarColorToolbar");
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle("StatusBarColorToolbar");
 
         AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_layout);
