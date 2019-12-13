@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cn.ycbjie.ycstatusbarlib.dlBar.DlStatusBar;
+import cn.ycbjie.ycstatusbarlib.utils.RomUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,6 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initDrawerLayoutStatus();
         initBar();
         initNav();
+
+        boolean flyme = RomUtils.isFlyme();
+        System.out.println("是否是魅族"+flyme);
+        boolean emui = RomUtils.isEmui();
+        System.out.println("是否是华为"+flyme);
+        String name = RomUtils.getName();
+        String version = RomUtils.getVersion();
+        System.out.println("是否是"+name+"----"+version);
     }
 
 
