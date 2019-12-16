@@ -30,6 +30,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:27.0.0'
     compile 'com.android.support:cardview-v7:27.0.0'
-//    compile 'cn.yc:YCStatusBarLib:1.4.2'
-    compile project(':YCStatusBarLib')
+    compile 'cn.yc:YCStatusBarLib:1.4.3'
+//    compile project(':YCStatusBarLib')
 }
