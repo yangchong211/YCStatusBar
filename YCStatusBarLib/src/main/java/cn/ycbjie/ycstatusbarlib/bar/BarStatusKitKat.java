@@ -93,20 +93,25 @@ final class BarStatusKitKat {
         if (view != null) {
             TypedValue typedValue = new TypedValue();
             if (activity.getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
-                int actionBarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getResources().getDisplayMetrics());
+                int actionBarHeight = TypedValue.complexToDimensionPixelSize(
+                        typedValue.data, activity.getResources().getDisplayMetrics());
                 StateAppBar.setContentTopPadding(activity, actionBarHeight);
             }
         }
     }
 
+
+    /**
+     * 设置状态栏透明效果
+     * @param activity                          activity
+     */
     static void translucentStatusBar(Activity activity) {
         Window window = activity.getWindow();
         //设置Window为透明
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
+        //获取content布局
         ViewGroup mContentView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
         View mContentChild = mContentView.getChildAt(0);
-
         //移除已经存在假状态栏则,并且取消它的Margin间距
         removeFakeStatusBarViewIfExist(activity);
         //获取状态栏的高度

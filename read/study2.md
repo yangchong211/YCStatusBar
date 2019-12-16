@@ -61,6 +61,9 @@
 
 
 
+### 参考博客
+- 沉浸式状态栏实现及遇到的坑：https://www.jianshu.com/p/48a4ce8e97c3
+- Android 刘海屏适配全攻略：https://www.jianshu.com/p/561f7241153b
 
 
 

@@ -190,6 +190,7 @@ public final class StateAppBar {
             @SuppressLint("PrivateApi")
             Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
             Window window = activity.getWindow();
+            //具体参考小米的解决方案
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             //先清除
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
