@@ -24,9 +24,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+import cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils;
+import cn.ycbjie.ycstatusbarlib.view.StatusBarView;
 
-import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
+import static cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils.getStatusBarHeight;
 
 
 /**

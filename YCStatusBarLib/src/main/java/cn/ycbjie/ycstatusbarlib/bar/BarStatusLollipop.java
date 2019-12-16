@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.OnApplyWindowInsetsListener;
@@ -33,7 +32,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
+import static cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils.getStatusBarHeight;
 
 
 /**
@@ -98,6 +97,7 @@ final class BarStatusLollipop {
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
         }
         //view不根据系统窗口来调整自己的布局
+        //将根rootView直接顶上去，和状态栏的顶部对齐。
         ViewGroup mContentView = (ViewGroup) window.findViewById(Window.ID_ANDROID_CONTENT);
         View mChildView = mContentView.getChildAt(0);
         if (mChildView != null) {

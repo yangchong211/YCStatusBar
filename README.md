@@ -191,6 +191,26 @@ StatusBarUtils.StatusBarLightMode(StatusBarFragmentActivity.this);
 
 
 
+
+### 6.状态栏系列文档
+- [01.状态栏基础介绍]()
+    - 01.透明状态栏和沉浸式
+    - 02.theme主题对状态栏影响
+    - 03.如何给状态栏着色
+    - 04.注意4.4状态栏着色
+    - 05.如何设置状态栏透明
+    - 06.状态栏不占位的问题
+    - 07.修改状态栏文字颜色
+- [02.状态栏属性深入分析]()
+    - 01.状态栏的发展过程介绍
+    - 02.android6.0状态栏内容不见
+    - 03.setSystemUiVisibility
+    - 04.fitsSystemWindows深入分析
+
+
+
+
+
 ### 6.关于其他介绍
 #### 关于我的博客
 - github：https://github.com/yangchong211

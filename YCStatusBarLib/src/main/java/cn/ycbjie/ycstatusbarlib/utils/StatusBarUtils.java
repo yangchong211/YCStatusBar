@@ -1,4 +1,4 @@
-package cn.ycbjie.ycstatusbarlib;
+package cn.ycbjie.ycstatusbarlib.utils;
 
 
 import android.app.Activity;

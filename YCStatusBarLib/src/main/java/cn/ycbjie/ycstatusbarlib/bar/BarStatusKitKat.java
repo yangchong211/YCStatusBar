@@ -36,9 +36,9 @@ import android.widget.FrameLayout;
 import java.lang.reflect.Field;
 
 import cn.ycbjie.ycstatusbarlib.R;
-import cn.ycbjie.ycstatusbarlib.dlBar.StatusBarView;
+import cn.ycbjie.ycstatusbarlib.view.StatusBarView;
 
-import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
+import static cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils.getStatusBarHeight;
 
 /**
  * <pre>
@@ -52,7 +52,13 @@ import static cn.ycbjie.ycstatusbarlib.StatusBarUtils.getStatusBarHeight;
 @TargetApi(Build.VERSION_CODES.KITKAT)
 final class BarStatusKitKat {
 
+    /**
+     * 添加一个状态栏高度的自定义view
+     */
     private static final String TAG_FAKE_STATUS_BAR_VIEW = "statusBarView";
+    /**
+     * 添加margin
+     */
     private static final String TAG_MARGIN_ADDED = "marginAdded";
 
     static void setStatusBarColor(Activity activity, int statusColor) {
@@ -259,6 +265,7 @@ final class BarStatusKitKat {
 
     /**
      * 如果已经存在假状态栏则移除，假状态栏是指StatusBarView，添加之前可以先移除操作，避免重复添加
+     * TAG_FAKE_STATUS_BAR_VIEW    给假的状态栏StatusBarView打的tag标签
      * @param activity                      activity
      */
     private static void removeFakeStatusBarViewIfExist(Activity activity) {
@@ -272,6 +279,8 @@ final class BarStatusKitKat {
 
     /**
      * 添加一个假的状态栏
+     * 4.4以上，5.0以下
+     * 原理：只要在根布局去设置一个与状态栏等高的View，设置背景色为我们期望的颜色就可以
      * @param activity                      activity
      * @param statusBarColor                状态栏颜色
      * @param statusBarHeight               状态栏高度，这个高度可以获取
@@ -294,6 +303,11 @@ final class BarStatusKitKat {
         return mStatusBarView;
     }
 
+    /**
+     * 添加到顶部margin间距
+     * @param mContentChild                 子child
+     * @param statusBarHeight               状态栏高度
+     */
     private static void addMarginTopToContentChild(View mContentChild, int statusBarHeight) {
         if (mContentChild == null) {
             return;
@@ -307,12 +321,18 @@ final class BarStatusKitKat {
         }
     }
 
+    /**
+     * 移除到顶部margin间距
+     * @param mContentChild                 子child
+     * @param statusBarHeight               状态栏高度
+     */
     private static void removeMarginTopOfContentChild(View mContentChild, int statusBarHeight) {
         if (mContentChild == null) {
             return;
         }
         if (TAG_MARGIN_ADDED.equals(mContentChild.getTag())) {
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mContentChild.getLayoutParams();
+            //移除到顶部的间距
             lp.topMargin -= statusBarHeight;
             mContentChild.setLayoutParams(lp);
             mContentChild.setTag(null);

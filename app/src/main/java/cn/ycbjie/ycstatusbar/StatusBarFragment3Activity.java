@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+import cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils;
 import cn.ycbjie.ycstatusbarlib.bar.StateAppBar;
 
 

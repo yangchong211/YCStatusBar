@@ -34,7 +34,7 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import cn.ycbjie.ycstatusbarlib.StatusBarUtils;
+import cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils;
 import cn.ycbjie.ycstatusbarlib.utils.StatusBarColorUtils;
 
 
@@ -125,11 +125,11 @@ public final class StateAppBar {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色
             if (setStatusBarLightMode(activity, true) || FlymeSetStatusBarLightMode(activity, true)) {
                 //设置状态栏为指定颜色
-                //5.0
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    //5.0
                     activity.getWindow().setStatusBarColor(color);
-                    //4.4
                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    //4.4  到   5.0之间
                     //调用修改状态栏颜色的方法
                     setStatusBarColor(activity, color);
                 }
@@ -181,6 +181,7 @@ public final class StateAppBar {
             Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
             Window window = activity.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //先清除
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 //相当于在布局中设置android:fitsSystemWindows="true"，让contentView顶上去

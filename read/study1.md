@@ -174,6 +174,7 @@
 - 有什么方法可以设置顶上去
     - 布局添加：android:fitsSystemWindows="true|false"，有没有觉得很熟悉。
     - 代码设置：window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+    - 或者theme主题设置：在theme的style中加入<item name="android:fitsSystemWindows">true</item>
 - fitsSystemWindows 见名知意，意思是表示系统还是要占据状态栏的位置了，这样我们的状态栏和 ui 才能没有冲突
 
 
