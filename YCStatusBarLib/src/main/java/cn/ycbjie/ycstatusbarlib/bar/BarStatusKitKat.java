@@ -61,6 +61,12 @@ final class BarStatusKitKat {
      */
     private static final String TAG_MARGIN_ADDED = "marginAdded";
 
+    /**
+     * 设置状态栏的颜色，4.4以上，5.0以下，可以直接通过添加状态view来修改颜色
+     *
+     * @param activity                          activity
+     * @param statusColor                       颜色
+     */
     static void setStatusBarColor(Activity activity, int statusColor) {
         Window window = activity.getWindow();
         //设置Window为全透明

@@ -48,7 +48,8 @@ import static cn.ycbjie.ycstatusbarlib.utils.StatusBarUtils.getStatusBarHeight;
 final class BarStatusLollipop {
 
     /**
-     * 设置状态栏的颜色
+     * 设置状态栏的颜色，5.0以上，可以直接通过setStatusBarColor进行修改
+     *
      * @param activity                          activity
      * @param statusColor                       颜色
      */
@@ -62,11 +63,14 @@ final class BarStatusLollipop {
         window.setStatusBarColor(statusColor);
         //设置系统状态栏处于可见状态
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
-        //让view不根据系统窗口来调整自己的布局
+        //让view不根据系统窗口来调整自己的布局，实际上就是content布局
         ViewGroup mContentView = (ViewGroup) window.findViewById(Window.ID_ANDROID_CONTENT);
         //获取getChildAt(0)
         View mChildView = mContentView.getChildAt(0);
         if (mChildView != null) {
+            //setFitsSystemWindows(boolean):设置系统是否需要考虑System Bar占据的区域来显示。
+            //如果需要的话就会执行 fitSystemWindows(Rect)方法。
+            //即设置为true的是时候系统会适应System Bar的区域，让内容不被遮住。
             mChildView.setFitsSystemWindows(false);
             ViewCompat.requestApplyInsets(mChildView);
         }

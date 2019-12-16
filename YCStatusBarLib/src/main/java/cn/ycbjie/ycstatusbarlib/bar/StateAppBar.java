@@ -50,7 +50,7 @@ import cn.ycbjie.ycstatusbarlib.utils.StatusBarColorUtils;
 public final class StateAppBar {
 
     /**
-     * 设置状态栏颜色
+     * 设置状态栏颜色，使用该方法也可以，如果是设置状态栏为白色或者黑色，请使用setStatusBarLightMode方法
      * @param activity                      activity
      * @param statusColor                   颜色
      */
@@ -114,20 +114,25 @@ public final class StateAppBar {
     }
 
     /**
-     * 设置状态栏颜色
+     * 设置状态栏颜色，设置状态栏白色，或者灰色，请用这个方法。
      * @param activity                      activity
      * @param color                         颜色
      */
     @SuppressLint("NewApi")
     public static void setStatusBarLightMode(Activity activity, @ColorInt int color) {
         StatusBarUtils.checkNull(activity);
+        //大于19，也就是4.4，现在几乎都是4.4以上的手机呢
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色
             if (setStatusBarLightMode(activity, true) || FlymeSetStatusBarLightMode(activity, true)) {
                 //设置状态栏为指定颜色
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     //5.0
+                    //给状态栏设置颜色
+                    activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                     activity.getWindow().setStatusBarColor(color);
+                    //BarStatusLollipop.setStatusBarColor(activity, color);
                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     //4.4  到   5.0之间
                     //调用修改状态栏颜色的方法
@@ -136,17 +141,22 @@ public final class StateAppBar {
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 //如果是6.0以上将状态栏文字改为黑色，并设置状态栏颜色
                 activity.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                //SYSTEM_UI_FLAG_LIGHT_STATUS_BAR属性介绍
                 //相当于在布局中设置android:fitsSystemWindows="true"，让contentView顶上去
+                //SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN属性介绍
+                //状态栏一直存在并且不会挤压activity高度，状态栏会覆盖在activity之上
                 activity.getWindow().getDecorView().
                         setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                                 View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 activity.getWindow().setStatusBarColor(color);
-
                 //fitsSystemWindow 为 false, 不预留系统栏位置.
                 ViewGroup mContentView = (ViewGroup) activity.getWindow()
                         .findViewById(Window.ID_ANDROID_CONTENT);
                 View mChildView = mContentView.getChildAt(0);
                 if (mChildView != null) {
+                    //setFitsSystemWindows(boolean):设置系统是否需要考虑System Bar占据的区域来显示。
+                    //如果需要的话就会执行 fitSystemWindows(Rect)方法。
+                    //即设置为true的是时候系统会适应System Bar的区域，让内容不被遮住。
                     mChildView.setFitsSystemWindows(true);
                     ViewCompat.requestApplyInsets(mChildView);
                 }
@@ -229,6 +239,11 @@ public final class StateAppBar {
         return StatusBarColorUtils.setStatusBarDarkIcon(activity,darkmode);
     }
 
+    /**
+     * 设置content布局的top的padding间距值
+     * @param activity                      activity
+     * @param padding                       padding值
+     */
     static void setContentTopPadding(Activity activity, int padding) {
         StatusBarUtils.checkNull(activity);
         ViewGroup mContentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
