@@ -31,7 +31,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.2.1'
-//    compile 'cn.yc:YCStatusBarLib:1.4.3'
-    implementation project(':StatusBarLib')
-    implementation project(':SearchBarLib')
+    implementation 'com.github.yangchong211.YCStatusBar:SearchBarLib:1.4.5'
+    implementation 'com.github.yangchong211.YCStatusBar:StatusBarLib:1.4.5'
+//    implementation project(':StatusBarLib')
+//    implementation project(':SearchBarLib')
 }
