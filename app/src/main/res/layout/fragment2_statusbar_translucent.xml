@@ -12,7 +12,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_autumn_tree_min" />
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

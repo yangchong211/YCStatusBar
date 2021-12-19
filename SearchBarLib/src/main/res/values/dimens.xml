@@ -1,0 +1,5 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="corner_radius_rounded">25dp</dimen>
+    <dimen name="corner_radius_default">2dp</dimen>
+</resources>

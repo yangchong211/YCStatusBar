@@ -1,1 +1,2 @@
-include ':app', ':YCStatusBarLib'
+include ':app', ':StatusBarLib'
+include ':SearchBarLib'
