@@ -19,7 +19,7 @@
 ### 1.关于如何集成
 - 在gradle中添加：
 ```
-implementation 'com.github.yangchong211.YCStatusBar:StatusBarLib:1.4.5'
+implementation 'com.github.yangchong211.YCStatusBar:StatusBarLib:1.4.6'
 ```
 - 项目地址：https://github.com/yangchong211/YCStatusBar
 - ![image](https://github.com/yangchong211/YCStatusBar/blob/master/image/image1.jpg)
